@@ -10,7 +10,7 @@ const calculate = (btnVal) => {
     //jika tandaa sama dengan di pencet
     if (btnVal ==="=" && output !==""){
         //ketika input ada tanda %
-        output = parseFloat(eval(output.replace("%", "/100")).toFixed(2));
+        output = parseFloat(eval(output).toFixed(2));
     } else if (btnVal === "AC" ) {
         /**
          * digunakan untuk mendeteksi tombol AC
