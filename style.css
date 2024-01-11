@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+:root {
+    --warna-1: rgb(35, 45, 63);
+    --warna-2: #545B77;
+    --warna-3: #dbd9e3;
+    --warna-operator: #005B41;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,16 +17,16 @@
 body {
     display: flex;
     height: 100vh;
-    background-color: azure;
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    background-color: var(--warna-1);
 }
 
 .container {
     padding: 10px 15px;
     position: relative;
-    background-color: rgba(14, 17, 17, 0.767);
+    background-color: #545B77;
     max-width: 300px;
     width: 100%;
     border-radius: 12px;
@@ -36,6 +43,7 @@ body {
     margin-top: 30px;
     font-size: 35px;
     text-align: right;
+    background-color: #dbd9e3;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -48,15 +56,20 @@ body {
     width: 100%;
 }
 
+button.operator {
+    background-color: var(--warna-operator);
+}
+
 button {
     width: 50px;
     height: 50px;
     border-radius: 15px;
     border: none;
-    color: aliceblue;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
     /* pointer-events: none; */
     cursor: pointer;
-    background-color: rgba(92, 166, 250, 0.705);
+    background-color: #5ca6fab4;
 }
 
 button:active button::hover {
