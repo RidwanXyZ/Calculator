@@ -1,77 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* import font dari google font secara online */
+/* menggunakan ukuran kelipatan lima untuk satuan px */
 
-:root {
-    --warna-1: rgb(35, 45, 63);
-    --warna-2: #545B77;
-    --warna-3: #dbd9e3;
-    --warna-operator: #005B41;
-}
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
+/* memilah semua element untuk mendapatstyle margin, padding */
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
+/* body: heigth, display */
 body {
-    display: flex;
     height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    background-color: var(--warna-1);
+    background-color: #35374B;
 }
 
-.container {
-    padding: 10px 15px;
-    position: relative;
-    background-color: #545B77;
-    max-width: 300px;
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
-}
-
+/* .display: width, height, display, border, align */
 .display {
     width: 100%;
     height: 90px;
-    border: none;
-    border-radius: 12px;
-    margin-bottom: 30px;
+    margin: 10px 0 30px 0;
+    border-radius: 10px;
     outline: none;
-    margin-top: 30px;
-    font-size: 35px;
-    text-align: right;
-    background-color: #dbd9e3;
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
-}
-
-
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    border: none;
+    pointer-events: none;
     padding: 10px;
-    width: 100%;
+    text-align: end;
+    font-size: 25px;
 }
 
-button.operator {
-    background-color: var(--warna-operator);
+/* .calculator: widht, padding, border */
+.calculator {
+    max-width: 360px;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #58788a;
+}
+
+.btns {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
 }
 
 button {
-    width: 50px;
-    height: 50px;
-    border-radius: 15px;
+    border-radius: 5px;
     border: none;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    /* pointer-events: none; */
-    cursor: pointer;
-    background-color: #5ca6fab4;
+    outline: none;
+    height: 50px;
 }
 
-button:active button::hover {
+button:active {
     transform: scale(0.99);
+}
+
+.operator {
+    background-color: #B5C0D0;
 }
