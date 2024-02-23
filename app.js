@@ -1,40 +1,32 @@
+// variabel display, buttons untuk mengambil element di html
 const display = document.querySelector(".display");
-const btn = document.querySelectorAll("button");
-const specialChars = ["%","-","=","+","*","/"];
+const buttons = document.querySelectorAll("button");
 
+// menginisiai variabel result untuk menyimpan nilai button
+let result = "";
+// array operator untuk menghindari ditekan pada awal
+const operator = ["=","+","-","/","*","%","MOD","."];
 
-let output = "";
-
-
-const calculate = (btnVal) => {
-    //jika tandaa sama dengan di pencet
-    if (btnVal ==="=" && output !==""){
-        //ketika input ada tanda %
-        output = parseFloat(eval(output).toFixed(2));
-    } else if (btnVal === "AC" ) {
-        /**
-         * digunakan untuk mendeteksi tombol AC
-         */
-        //bersihkan display
-        output = "";
-    } else if (btnVal === "DEL") {
-        /**
-         * digunakan ketika mendeteksi tombol DEL
-         */
-        //kodenya 
-        output = output.toString().slice(0,-1)
+// fungsi calculation:
+//         value: buttons
+const calculation = (value) => {
+    if (value === "=" && result !==""){
+        result = parseFloat(eval(
+            result.replace("%","/100").replace("MOD","%")
+        ).toFixed(2));
+    } else if (value === "AC"){
+        result = "";
+    } else if (value === "DEL"){
+        result = result.toString().slice(0,-1);
     } else {
-        /**
-         * untuk melihat apakah display kosong dan terdapat specialChars
-         */
-        if (output==="" && specialChars.includes(btnVal)) return;
-        output += btnVal 
+        if (result == "" && operator.includes(value)) return;
+        result += value;
     }
-
-    //displaing output
-    display.value = output
+    // mendisplay result ke layar
+    display.value = result;
 }
 
-btn.forEach((button) => {
-    button.addEventListener("click", (e) => calculate(e.target.dataset.value))
+// melakukan perulangan untuk melakukan pemanggilan fungsi calculation saat buttonsdi click
+buttons.forEach(btn => {
+    btn.addEventListener("click", (data) => calculation(data.target.dataset.value))
 });
